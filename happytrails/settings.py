@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'main_app'
+    'main_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'happytrails.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.prostgresql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'happytrails',
     }
 }
