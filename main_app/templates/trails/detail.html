@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Trail Detail</h1>
+
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">Trail: {{ trail.name }}</span>
+        <span class="card-title">Address: {{ trail.address }}</span>
+        <span class="card-title">City/State: {{ trail.city }} / {{ trail.state }}</span>
+        <span class="card-title">Trail Length: {{ trail.trail_length }}</span>
+    </div>
+    <div class="card-action">
+        <a href="{% url 'trails_update' trail.id %}">Edit</a>
+        <a href="{% url 'trails_delete' trail.id %}">Delete</a>
+    </div>
+</div>
+<br>
+<div>
+    <form action="{% url 'add_comment' trail.id %}" method="POST">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <input type="submit" class="btn" value="Add Comment">
+    </form>
+    <table>
+        <thead>
+            <tr><th>Date</th><th>Comment</th></tr>
+        </thead>
+        <tbody>
+            {% for comment in trail.comment_set.all %}
+            <tr>
+                <td>{{ comment.date }}</td>
+                <td>{{ comment.description }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+
+{% endblock %}
