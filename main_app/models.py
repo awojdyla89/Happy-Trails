@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -8,6 +9,9 @@ class Trail(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     trail_length = models.DecimalField(max_digits=4, decimal_places=2, default= 00.00)
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'pk': self.id})
  
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -16,8 +20,13 @@ class Comment(models.Model):
     description = models.TextField(max_length=250)
 
     trail = models.ForeignKey(Trail, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"comment from {self.trail} on {self.date}"
     
+    class Meta:
+        ordering = ['-date']
 
 # class Photo(models.Model):
 #     url = models.CharField(max_length=200)
