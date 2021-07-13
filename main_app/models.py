@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 
@@ -51,7 +52,7 @@ class Trail(models.Model):
     amenities = models.ManyToManyField(Amenity)
 
 class Comment(models.Model):
-    date = models.DateField('Comment Date')
+    date = models.DateTimeField(auto_now_add=True)
     description = models.TextField(max_length=250)
 
     trail = models.ForeignKey(Trail, on_delete=models.CASCADE)
