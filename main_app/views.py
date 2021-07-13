@@ -3,8 +3,9 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 
-from .models import Trail, Comment
+from .models import Trail, Comment, Amenity
 from .forms import CommentForm
+from django.urls import reverse_lazy, reverse
 
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -22,6 +23,7 @@ def about(request):
 class TrailList(ListView):
     model = Trail
 
+
 def trails_detail(request, trail_id):
     trail = Trail.objects.get(id=trail_id)
     comment_form = CommentForm()
@@ -29,29 +31,25 @@ def trails_detail(request, trail_id):
         'trail': trail, 'comment_form': comment_form
     })
 
-# class TrailDetail(DetailView):
-#     model = Trail
-#     comment_form = CommentForm()
-
-class TrailCreate(CreateView):
+class TrailCreate(LoginRequiredMixin, CreateView):
     model = Trail
-    fields = ['name', 'address', 'city', 'state', 'trail_length']
+    fields = ['name', 'address', 'city', 'state', 'trail_length', 'amenities']
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
     success_url = '/trails/'
 
 
-class TrailUpdate(UpdateView):
+class TrailUpdate(LoginRequiredMixin, UpdateView):
     model = Trail
-    fields = ['name', 'address', 'city', 'state', 'trail_length']
+    fields = ['name', 'address', 'city', 'state', 'trail_length', 'amenities']
 
-class TrailDelete(DeleteView):
+
+class TrailDelete(LoginRequiredMixin, DeleteView):
     model = Trail
     success_url = '/trails/'
 
-
-
+@login_required
 def add_comment(request, trail_id):
     form = CommentForm(request.POST)
     if form.is_valid():
@@ -60,6 +58,16 @@ def add_comment(request, trail_id):
         form.instance.user = request.user
         new_comment.save()
     return redirect('detail', trail_id=trail_id)
+
+class CommentUpdate(LoginRequiredMixin, UpdateView):
+  model = Comment
+  fields = ['description']
+
+@login_required
+def delete_comment(request, trail_id, comment_id):
+  Comment.objects.get(id=comment_id).delete()
+  return redirect('detail', trail_id=trail_id)
+  #return reverse('detail', kwargs={'trail_id': self.object.trail_id})
 
 def signup(request):
     error_message = ''

@@ -31,10 +31,18 @@
             {% for comment in trail.comment_set.all %}
             <tr>
                 <td>{{ comment.date }}</td>
-                <td>{{ comment.description }}</td>
+                <td>{{ comment.description }}</td> 
+                <td><a href="{% url 'comments_update' comment.id %}">Edit</a></td> 
+                <td><a href="{% url 'comments_delete' trail.id comment.id %}">Delete</a></td> 
             </tr>
             {% endfor %}
         </tbody>
+        <div>Amenities:</div><br>
+        {% for amenity in trail.amenities.all %}
+        <section>
+            <div>{{amenity.get_name_display}}</div>
+        </section>
+        {% endfor %}
     </table>
 
 </div>

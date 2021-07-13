@@ -1,5 +1,6 @@
 body{
-  background-image:url('/static/img/happy_trails_landing_page.jpeg');
+  background-color: bisque;
+  /* background-image:url('/static/img/happy_trails_landing_page.jpeg'); */
   background-repeat:no-repeat;
   background-size:100%;
 }
