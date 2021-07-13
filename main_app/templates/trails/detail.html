@@ -10,12 +10,10 @@
         <span class="card-title">Address: {{ trail.address }}</span>
         <span class="card-title">City/State: {{ trail.city }} / {{ trail.state }}</span>
         <span class="card-title">Trail Length: {{ trail.trail_length }}</span>
-    </div>
-    <div class="card-action">
+
         <a href="{% url 'trails_update' trail.id %}">Edit</a>
         <a href="{% url 'trails_delete' trail.id %}">Delete</a>
-    </div>
-</div>
+
 <br>
 <div>
     <form action="{% url 'add_comment' trail.id %}" method="POST">
@@ -45,7 +43,9 @@
         {% endfor %}
     </table>
 
-</div>
+   </div>
+  </div>
+</div> 
 
 
 
