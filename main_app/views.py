@@ -15,7 +15,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def home(request):
-    return HttpResponse('<h1>Home Page</h1>')
+    return render(request, 'home.html')
+    # return HttpResponse('<h1>Home Page</h1>')
 
 def about(request):
     return render(request, 'about.html')
