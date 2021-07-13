@@ -13,6 +13,7 @@
 <body>
  
   <header class="navbar-fixed">
+
     <nav id="navigation">
       <div><a href="/" class="left brand-logo" id="logo">&nbsp;&nbsp;Happy Trails</a></div>
       <div id="links"><a href="{% url 'about' %}">About</a>
@@ -25,6 +26,7 @@
       <a href="{% url 'login' %}">Log In</a></div>
       {% endif %}
     </nav>
+    
   </header>
   <main class="container">
     {% if user.is_authenticated %}
