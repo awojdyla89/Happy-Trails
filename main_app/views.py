@@ -92,28 +92,38 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
+
 # class SearchResults(ListView):
-#     model = Amenity
+#     model = Trail
+#     trails = Trail.objects.all()
+#     print(trails)
+#     template_name = 'search_results.html'
+#     def get_queryset(self):
+#         query = self.request.GET.get('q')
+#         amenity = Amenity.objects.filter(Q(name__icontains=query))
+#         print(amenity)
+#         #object_list = Trail.objects.filter(amenities)
+#         trail = Trail.objects.filter(amenities=amenity.id)
+#         return trail
+
+
+# class SearchResults(ListView):
+#     model = Trail
 #     template_name = 'search_results.html'
 #     def get_queryset(self): # new
-#         # amenities_to_list = [entry[0] for entry in AMENITIES]
-#         # print(amenities_to_list, 'LIST_______<_<<<_<__<<_<_<_<_<_<_<__<')
-#         query = self.request.GET.get('q') 
-#         object_list = Amenity.objects.filter(
-#             Q(name__icontains=query)
+#         query = self.request.GET.get('q')
+#         object_list = Trail.objects.filter(
+#             Q(name__icontains=query) | Q(state__icontains=query)
 #         )
-#         trail_list = Trail.objects.filter()
-#         return trail_list
+#         return object_list
 
 class SearchResults(ListView):
     model = Trail
-    trails = Trail.objects.all()
-    print(trails)
     template_name = 'search_results.html'
-    def get_queryset(self):
+    def get_queryset(self): # new
         query = self.request.GET.get('q')
-        amenity = Amenity.objects.filter(Q(name__icontains=query))
-        print(amenity)
-        #object_list = Trail.objects.filter(amenities)
-        trail = Trail.objects.filter(amenities=amenity.id)
-        return trail
+        object_list = Trail.objects.filter(
+            Q(amenities__name__icontains=query)
+        )
+        
+        return object_list
