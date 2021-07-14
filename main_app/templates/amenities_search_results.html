@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Amenities Search Results</h1>
+
+  {% for trail in object_list %}
+  
+        <a href=" {% url 'detail' trail.id %}">
+            <div class="card">
+                <div class="trail_detail">
+                    <span class="card-title" id="specifics">Trail: {{ trail.name }}<br>
+                        Address: {{ trail.address }}<br> {{ trail.city}},{{ trail.state }}<br>
+                        Trail Length: {{ trail.trail_length }} miles<br></span>
+                    <div> {% if amenities.length %}
+                        Amenities: {{ trail.amenities }}
+                        {%else %}
+                        Amenities:
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            </a>
+    
+  {% endfor %}
+{% endblock %}

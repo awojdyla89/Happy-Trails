@@ -17,10 +17,17 @@
 
     <h3 class="phrase">Search for trails based on amenities below:</h3>
 
-    <form action="{% url 'search_results' %}" method="get">
+    <form action="{% url 'amenities_search_results' %}" method="get">
         <input name="q" type="text" placeholder="Search...">
         <input type="submit" class="btn" value="Search">
-      </form>
+    </form>
+
+    <h3 class="phrase">Search for trails based on amenities below:</h3>
+
+    <form action="{% url 'trails_search_results' %}" method="get">
+        <input name="q" type="text" placeholder="Search...">
+        <input type="submit" class="btn" value="Search">
+    </form>
     
 </div>
 

@@ -6,17 +6,16 @@ from django.utils import timezone
 
 class Amenity(models.Model):
     name = models.CharField(max_length=100)
+    image = models.CharField(max_length=100)
     def __str__(self):
         return self.name
 
     
-
-# Create your models here.
 class Trail(models.Model):
     name = models.CharField(max_length=100)
     address = models.TextField(max_length=250)
     city = models.CharField(max_length=100)
-    state = models.CharField(max_length=100)
+    state = models.CharField(max_length=2)
     trail_length = models.DecimalField(max_digits=4, decimal_places=2, default= 00.00)
     
 
@@ -25,6 +24,7 @@ class Trail(models.Model):
  
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     amenities = models.ManyToManyField(Amenity)
+
 
 class Comment(models.Model):
     date = models.DateTimeField(auto_now_add=True)
