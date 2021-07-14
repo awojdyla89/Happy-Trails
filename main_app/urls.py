@@ -13,8 +13,7 @@ urlpatterns = [
     path('trails/<int:trail_id>/add_comment/', views.add_comment, name='add_comment'),
     path('comments/<int:pk>/update/', views.CommentUpdate.as_view(), name='comments_update'),
     path('trails/<int:trail_id>/delete_comment/<int:comment_id>/', views.delete_comment, name='comments_delete'),
-    # path('trails/<int:trail_id>/add_amenity/', views.add_amenity, name='add_amenity'),
-
+    path('search/', views.SearchResults.as_view(), name='search_results'),
     path('accounts/signup/', views.signup, name='signup'),
 
 ]

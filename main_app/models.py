@@ -4,37 +4,12 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 
-
-AMENITIES = (
-    ('RST', 'Restroom'),
-    ('BEN', 'Benches'),
-    ('PIC', 'Picnic Tables'),
-    ('VIS', 'Visitor Center'),
-    ('DOG', 'Dog Friendly'),
-    ('PLY', 'Playground'),
-    ('WTR', 'Water Fountains'),
-    ('BBQ', 'Barbeque Pit'),
-    ('MTN', 'Mountain Biking'),
-    ('RNG', 'Running'),
-    ('HIK', 'Hiking'),
-    ('SWM', 'Swimming'),
-    ('PTH', 'Nature Path'),
-    ('CMP', 'Camping'),
-    ('BRD', 'Bird Watching'),
-    ('BGN', 'Begginer'),
-    ('INT', 'Intermediate'),
-    ('ADV', 'Advanced')
-)
-
-
 class Amenity(models.Model):
-    name = models.CharField(
-        max_length=3,
-        choices=AMENITIES,
-        default=AMENITIES[0][0]
-    )
+    name = models.CharField(max_length=100)
     def __str__(self):
-        return self.get_name_display()
+        return self.name
+
+    
 
 # Create your models here.
 class Trail(models.Model):

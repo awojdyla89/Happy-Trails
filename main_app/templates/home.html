@@ -14,10 +14,13 @@
             <div id="family_icon"></div>Family Friendly</p>
         </div>
     </section>
-    <div class="search">
-        <input type="text" value=""class="search_input" >
-        <button class="search_button">Search</button>
-    </div>
+
+    <h3 class="phrase">Search for trails based on amenities below:</h3>
+
+    <form action="{% url 'search_results' %}" method="get">
+        <input name="q" type="text" placeholder="Search...">
+        <input type="submit" class="btn" value="Search">
+      </form>
     
 </div>
 

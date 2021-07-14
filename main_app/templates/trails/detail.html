@@ -44,7 +44,7 @@
         <div>Amenities:</div><br>
         {% for amenity in trail.amenities.all %}
         <section>
-            <div>{{amenity.get_name_display}}</div>
+            <div>{{amenity.name}}</div>
         </section>
         {% endfor %}
     </table>
