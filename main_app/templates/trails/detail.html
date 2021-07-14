@@ -10,9 +10,12 @@
         <span class="card-title">Address: {{ trail.address }}</span>
         <span class="card-title">City/State: {{ trail.city }} / {{ trail.state }}</span>
         <span class="card-title">Trail Length: {{ trail.trail_length }}</span>
+        <span class="card-title">Entered By: {{ trail.user }}</span>
 
         <a href="{% url 'trails_update' trail.id %}">Edit</a>
+        {% if trail.user == request.user %}
         <a href="{% url 'trails_delete' trail.id %}">Delete</a>
+        {% endif %}
 
 <br>
 <div>
