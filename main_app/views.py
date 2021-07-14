@@ -25,6 +25,12 @@ class TrailList(ListView):
     model = Trail
 
 @login_required
+def my_trails(request):
+    trails = Trail.objects.filter(user=request.user)
+    return render(request, 'trails/mytrails.html', { 'trails': trails })
+
+
+@login_required
 def trails_detail(request, trail_id):
     trail = Trail.objects.get(id=trail_id)
     comment_form = CommentForm()
