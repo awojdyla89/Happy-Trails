@@ -1,6 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h3>Home Page</h3>
+<div>
+    <section class="phrase">The perfect trail is only a search away</section> 
+    <section class="images_front_page">
+        <div class="running_front">
+            <p><div id="running_icon"></div>Running Trails</p>
+        </div>
+        <div class="bike_front">
+            <p><div id="bike_icon"></div>Bike Trails</p>
+        </div>
+        <div class="family_front">
+            <div id="family_icon"></div>Family Friendly</p>
+        </div>
+    </section>
+    <div class="search">
+        <input type="text" value=""class="search_input" >
+        <button class="search_button">Search</button>
+    </div>
+    
+</div>
 
 {% endblock %}
