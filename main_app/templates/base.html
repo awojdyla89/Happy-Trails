@@ -19,6 +19,7 @@
         <a href="{% url 'index' %}">View All Trails</a>
       {% if user.is_authenticated %}
       <a href="{% url 'trails_create' %}">Add Trail</a>
+      <a href="{% url 'my_trails' %}">My Trails</a>
       <a href="{% url 'logout' %}">Log Out</a>
       {% else %}
       <a href="{% url 'signup' %}">Sign Up</a>

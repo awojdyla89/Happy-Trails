@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
     path('trails/', views.TrailList.as_view(), name='index'),
+    path('trails/mytrails', views.my_trails, name="my_trails"),
     path('trails/<int:trail_id>/', views.trails_detail, name='detail'),
     path('trails/create/', views.TrailCreate.as_view(), name='trails_create'),
     path('trails/<int:pk>/update/', views.TrailUpdate.as_view(), name='trails_update'),
