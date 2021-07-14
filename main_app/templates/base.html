@@ -20,18 +20,18 @@
       {% if user.is_authenticated %}
       <a href="{% url 'trails_create' %}">Add Trail</a>
       <a href="{% url 'my_trails' %}">My Trails</a>
-      <a href="{% url 'logout' %}">Log Out</a>
+      <a href="{% url 'logout' %}" id="login_out">Log Out</a>
       {% else %}
       <a href="{% url 'signup' %}">Sign Up</a>
-      <a href="{% url 'login' %}">Log In</a></div>
+      <a href="{% url 'login' %}" id="login_out">Log In</a></div>
       {% endif %}
     </nav>
     
-  </header>
   <main class="container">
     {% if user.is_authenticated %}
     <p class="username">Welcome back, {{ user.username}}!</p>
     {% endif %}
+    </header>
     {% block content %}
     {% endblock %}
   </main>

@@ -2,7 +2,7 @@
 {% block content %}
 
 <h1>My Trails (The Ones I Added)</h1>
-
+<div class="my_trails">
 {% for trail in trails %}
     <p>Trail: {{ trail.name }}</p>
     <p>Address: {{ trail.address }}</p>
@@ -10,7 +10,7 @@
     <p class="card-title">Trail Length: {{ trail.trail_length }}</p>
     <a href="{% url 'trails_update' trail.id %}">Edit</a>
     <a href="{% url 'trails_delete' trail.id %}">Delete</a>
-
+</div>
 {% endfor %}
 
 {% endblock %}
