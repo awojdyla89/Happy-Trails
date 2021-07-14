@@ -15,10 +15,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 
 
-# Create your views here.
 def home(request):
     return render(request, 'home.html')
-    # return HttpResponse('<h1>Home Page</h1>')
 
 def about(request):
     return render(request, 'about.html')
@@ -76,7 +74,6 @@ class CommentUpdate(LoginRequiredMixin, UpdateView):
 def delete_comment(request, trail_id, comment_id):
   Comment.objects.get(id=comment_id).delete()
   return redirect('detail', trail_id=trail_id)
-  #return reverse('detail', kwargs={'trail_id': self.object.trail_id})
 
 def signup(request):
     error_message = ''
@@ -92,38 +89,22 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
-
-# class SearchResults(ListView):
-#     model = Trail
-#     trails = Trail.objects.all()
-#     print(trails)
-#     template_name = 'search_results.html'
-#     def get_queryset(self):
-#         query = self.request.GET.get('q')
-#         amenity = Amenity.objects.filter(Q(name__icontains=query))
-#         print(amenity)
-#         #object_list = Trail.objects.filter(amenities)
-#         trail = Trail.objects.filter(amenities=amenity.id)
-#         return trail
-
-
-# class SearchResults(ListView):
-#     model = Trail
-#     template_name = 'search_results.html'
-#     def get_queryset(self): # new
-#         query = self.request.GET.get('q')
-#         object_list = Trail.objects.filter(
-#             Q(name__icontains=query) | Q(state__icontains=query)
-#         )
-#         return object_list
-
-class SearchResults(ListView):
+class TrailsSearchResults(ListView):
     model = Trail
-    template_name = 'search_results.html'
+    template_name = 'trails_search_results.html'
+    def get_queryset(self): # new
+        query = self.request.GET.get('q')
+        object_list = Trail.objects.filter(
+            Q(name__icontains=query) | Q(state__icontains=query)
+        )
+        return object_list
+
+class AmenitiesSearchResults(ListView):
+    model = Trail
+    template_name = 'amenities_search_results.html'
     def get_queryset(self): # new
         query = self.request.GET.get('q')
         object_list = Trail.objects.filter(
             Q(amenities__name__icontains=query)
         )
-        
         return object_list
