@@ -12,6 +12,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django.db.models import Q
+
 
 # Create your views here.
 def home(request):
@@ -89,3 +91,29 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+# class SearchResults(ListView):
+#     model = Amenity
+#     template_name = 'search_results.html'
+#     def get_queryset(self): # new
+#         # amenities_to_list = [entry[0] for entry in AMENITIES]
+#         # print(amenities_to_list, 'LIST_______<_<<<_<__<<_<_<_<_<_<_<__<')
+#         query = self.request.GET.get('q') 
+#         object_list = Amenity.objects.filter(
+#             Q(name__icontains=query)
+#         )
+#         trail_list = Trail.objects.filter()
+#         return trail_list
+
+class SearchResults(ListView):
+    model = Trail
+    trails = Trail.objects.all()
+    print(trails)
+    template_name = 'search_results.html'
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        amenity = Amenity.objects.filter(Q(name__icontains=query))
+        print(amenity)
+        #object_list = Trail.objects.filter(amenities)
+        trail = Trail.objects.filter(amenities=amenity.id)
+        return trail
