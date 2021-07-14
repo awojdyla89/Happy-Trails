@@ -31,8 +31,10 @@
                 <td>{{ comment.date }}</td>
                 <td>{{ comment.user }}</td>
                 <td>{{ comment.description }}</td> 
+                {% if comment.user == request.user %}
                 <td><a href="{% url 'comments_update' comment.id %}">Edit</a></td> 
-                <td><a href="{% url 'comments_delete' trail.id comment.id %}">Delete</a></td> 
+                <td><a href="{% url 'comments_delete' trail.id comment.id %}">Delete</a></td>
+                {% endif %} 
             </tr>
             {% endfor %}
         </tbody>
