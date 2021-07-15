@@ -15,31 +15,6 @@
         Trail Length: {{ trail.trail_length }}<br>
         Entered By: {{ trail.user }}</span>
         {% endif %}
-<<<<<<< HEAD
-<img src="" alt="">
-<br>
-<div>
-    <form action="{% url 'add_comment' trail.id %}" method="POST">
-        {% csrf_token %}
-        {{ comment_form.as_p }}
-        <input type="submit" class="btn" value="Add Comment">
-    </form>
-    <table>
-        <thead>
-            <tr><th>Date</th><th>Username</th><th>Comment</th></tr>
-        </thead>
-        <tbody>
-            {% for comment in trail.comment_set.all %}
-            <tr>
-                <td>{{ comment.date }}</td>
-                <td>{{ comment.user }}</td>
-                <td>{{ comment.description }}</td> 
-                {% if comment.user == request.user %}
-                <td><a href="{% url 'comments_update' comment.id %}">Edit</a></td> 
-                <td><a href="{% url 'comments_delete' trail.id comment.id %}">Delete</a></td>
-                {% endif %} 
-            </tr>
-=======
     </div>
     <br>
     <div class="amenities_list">Amenities:</div><br>
@@ -48,7 +23,6 @@
                 <div>{{amenity.name}}</div>
                 <div><img src='{{amentiy.image}}'>img</div>
             </section>
->>>>>>> a554500ac3fe8b947aae7fa54d1389f90d18ed6e
             {% endfor %}
     <div>
         <table>
