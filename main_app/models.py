@@ -25,6 +25,9 @@ class Trail(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     amenities = models.ManyToManyField(Amenity)
 
+    class Meta:
+        ordering = ['name']
+
 
 class Comment(models.Model):
     date = models.DateTimeField(auto_now_add=True)
