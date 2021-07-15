@@ -45,6 +45,7 @@ a{
   font-family: 'Lato', sans-serif; 
   font-size: 25px;
   margin-left: 3%;
+  margin-bottom: 0%;
 }
 
 h1{
@@ -67,33 +68,12 @@ h1{
   background-color:rgba(255, 255, 255, 0.85);
  
 }
-.trail_detail{
-  text-align: center;
-  color:rgba(38,84,30,0.87);
-  font-family: 'Lato', sans-serif; 
-  font-size: 24px;
-}
-.amenities_list{
-  color:rgba(38,84,30,0.87);
-  font-family: 'Lato', sans-serif; 
-  font-size: 24px;
-}
 footer{
+  font-size: 20px;
   margin-top: 5%;
   text-align: right;
   color: white;
   text-shadow:2px 2px 8px rgba(23, 52, 18, 0.90);
-}
-
-form{
-  display: flex;
-  justify-content: center;
-}
-
-.card-content{
-  background-color:rgba(255, 255, 255, 0.85);
-  text-align: center;
-  color:rgba(38,84,30,0.87);
 }
 
 .form{
@@ -234,7 +214,21 @@ form{
   font-size: 48px;
   text-shadow: 3px 8px 10px rgba(23, 52, 18, 0.90);
 }
+.trail_detail{
+  text-align: center;
+  color:rgba(38,84,30,0.87);
+  font-family: 'Lato', sans-serif; 
+  font-size: 24px;
+}
+.amenities_list{
+  color:rgba(38,84,30,0.87);
+  font-family: 'Lato', sans-serif; 
+  font-size: 24px;
+}
 .card-content{
+   background-color:rgba(255, 255, 255, 0.85);
+  text-align: center;
+  color:rgba(38,84,30,0.87);
   margin-left: 20%;
   margin-right: 20%;
   margin-bottom: 5%;
@@ -271,4 +265,31 @@ textarea{
   font-family: 'Lato', sans-serif; 
   background-color:rgba(23, 52, 18, 0.80);
   color: white;
+}
+.added-by{
+  font-size: 16px;
+}
+.add_trail_form{
+  margin-top: 0px;
+  margin-left: 25%;
+  margin-right: 25%;
+  background-color:rgba(255, 255, 255, 0.85);
+  color:rgba(23, 52, 18, 0.90);
+  display: flex;
+  justify-content: center;
+
+}
+h2{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color:white;
+  font-family: 'Lato', sans-serif; 
+  font-size:40px;
+  text-shadow:2px 2px 8px rgba(23, 52, 18, 0.90);
+  margin-bottom: 0px;
+  margin-top: 0%;
+}
+#my-trails{
+  background-color:rgba(255, 255, 255, 0.85);
 }

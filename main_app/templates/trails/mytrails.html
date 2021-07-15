@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>My Trails (The Ones I Added)</h1>
-<div class="my_trails">
+<h1>My Trails</h1>
 {% for trail in trails %}
+<div class="trail_detail" id="my-trails">
     <p>Trail: {{ trail.name }}</p>
     <p>Address: {{ trail.address }}</p>
     <p>City/State: {{ trail.city }} / {{ trail.state }}</p>
     <p class="card-title">Trail Length: {{ trail.trail_length }}</p>
     <a href="{% url 'trails_update' trail.id %}">Edit</a>
     <a href="{% url 'trails_delete' trail.id %}">Delete</a>
-</div>
-{% endfor %}
+   
 
+{% endfor %}
+</div>
 {% endblock %}
