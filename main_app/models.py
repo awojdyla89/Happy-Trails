@@ -12,7 +12,7 @@ class Amenity(models.Model):
 
     
 class Trail(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField('Trail Name', max_length=100)
     address = models.TextField(max_length=250)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=2)
@@ -31,7 +31,7 @@ class Trail(models.Model):
 
 class Comment(models.Model):
     date = models.DateTimeField(auto_now_add=True)
-    description = models.TextField(max_length=250)
+    description = models.TextField('Comment', max_length=250)
 
     trail = models.ForeignKey(Trail, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
