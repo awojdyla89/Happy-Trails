@@ -5,17 +5,17 @@
 
 {% for trail in trail_list %}
 <a href=" {% url 'detail' trail.id %}">
-<div class="card">
-    <div class="trail_detail">
+<div class="details">
+    <div class="trail_detail" >
         <span class="card-title" id="specifics">Trail: {{ trail.name }}<br>
             Address: {{ trail.address }}<br> {{ trail.city}},{{ trail.state }}<br>
             Trail Length: {{ trail.trail_length }} miles<br></span>
-        <div> {% if amenities.length %}
-            Amenities: {{ trail.amenities }}
-            {%else %}
-            Amenities:
-            {% endif %}
-        </div>
+    </div>
+    <div class="amenities_list"> {% if amenities.length %}
+        Amenities: {{ trail.amenities }}
+        {%else %}
+        Amenities:
+        {% endif %}
     </div>
 </div>
 </a>

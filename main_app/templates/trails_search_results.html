@@ -2,16 +2,16 @@
 {% block content %}
 
 <h1>Trail Search Results</h1>
-
+{% if object_list.count %} 
   {% for trail in object_list %}
   
         <a href=" {% url 'detail' trail.id %}">
-            <div class="card">
+            <div class="details">
                 <div class="trail_detail">
                     <span class="card-title" id="specifics">Trail: {{ trail.name }}<br>
                         Address: {{ trail.address }}<br> {{ trail.city}},{{ trail.state }}<br>
                         Trail Length: {{ trail.trail_length }} miles<br></span>
-                    <div> {% if trail.amenities.count %}
+                    <div class="amenities_list"> {% if trail.amenities.count %}
                             {% for amenity in trail.amenities.all %}
                             <ul>
                             Amenities: <li>{{ amenity.name }}</li>
@@ -19,12 +19,14 @@
                             </ul>
                           {% else %}
                           Amenities:
-                          {% endif %}
-                        
+                          {% endif %}                         
                     </div>
                 </div>
             </div>
             </a>
     
   {% endfor %}
+  {% else %}
+  <h1> No trails matched this search <a href="{% url 'home' %} " class="click_here">click here</a> to try again</h1> 
+  {% endif %}   
 {% endblock %}
