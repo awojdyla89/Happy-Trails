@@ -182,3 +182,7 @@ form{
 .my_trails{
   color: white;
 }
+
+textarea {
+  width: 100px
+}

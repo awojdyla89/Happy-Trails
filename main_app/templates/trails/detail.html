@@ -16,7 +16,7 @@
         {% if trail.user == request.user %}
         <a href="{% url 'trails_delete' trail.id %}">Delete</a>
         {% endif %}
-
+<img src="" alt="">
 <br>
 <div>
     <form action="{% url 'add_comment' trail.id %}" method="POST">
