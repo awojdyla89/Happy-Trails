@@ -5,9 +5,10 @@
 
 <h1>Edit <span class="add_trail">{{object.name}}</span></h1>
   {% else %}
-  <div class="form">
-    <h1>Add-Edit Trail</h1>
+  <h2>Add Trail</h2>
+ 
       {% endif %}
+      <div class="add_trail_form">
       <!-- Leaving the action empty makes the form post to the same url used to display it -->
       <form action="" method="post">
         <!-- Django requires the following for security purposes -->
