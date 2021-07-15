@@ -19,8 +19,8 @@ Happy Trails is an app that helps parents spend less time on research and more t
 * PostgreSQL
 * Heroku
 
-## Team
-* Allie Delano Bateman: Project Manager & Lead Developer
+## Our Team
+* Allie Delano Bateman: Product Manager & Lead Developer
 * Shannon Hensley: UX & Design
 * Adam Wojdyla: GitHub Manager & Lead Developer
 
