@@ -10,12 +10,14 @@
                 <div class="trail_detail">
                     <span class="card-title" id="specifics">Trail: {{ trail.name }}<br>
                         Address: {{ trail.address }}<br> {{ trail.city}},{{ trail.state }}<br>
-                        Trail Length: {{ trail.trail_length }} miles<br></span>
-                    <div class="amenities_list"> {% if amenities.length %}
-                        Amenities: {{ trail.amenities }}
-                        {%else %}
-                        Amenities: No amenities added yet
-                        {% endif %}
+                        Trail Length: {{ trail.trail_length }} miles<br>
+                    </span>
+                    <div class="amenities_list">Amenities:</div><br>
+                        {% for amenity in trail.amenities.all %}
+                        <section class="amenities">
+                            <div >{{amenity.name}}</div>
+                        </section>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
