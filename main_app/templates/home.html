@@ -5,30 +5,33 @@
     <section class="phrase">The perfect trail is only a search away</section> 
     <section class="images_front_page">
         <div class="running_front">
-            <p><div id="running_icon"></div>Running Trails</p>
+            <div id="running_icon"></div><div id="id_text">Running Trails</div>
         </div>
         <div class="bike_front">
-            <p><div id="bike_icon"></div>Bike Trails</p>
+            <div id="bike_icon"></div><div id="id_text">Bike Trails</div>
         </div>
         <div class="family_front">
-            <div id="family_icon"></div>Family Friendly</p>
+            <div id="family_icon"></div><div id="id_text">Family Friendly</div>
         </div>
     </section>
-
-    <h3 class="phrase">Search for trails based on amenities below:</h3>
+    <div class="front_page_search">
+    <div class="amenities_search">
+    <h3 class="search_phrase">Search for trails based on amenities below:</h3>
 
     <form action="{% url 'amenities_search_results' %}" method="get">
-        <input name="q" type="text" placeholder="Search...">
-        <input type="submit" class="btn" value="Search">
+        <input name="q" type="text" placeholder="Search..."class="search_input">
+        <input type="submit" class="search_button" value="Search">
     </form>
-
-    <h3 class="phrase">Search for trails based on amenities below:</h3>
+    </div>
+    <div class="location_search">
+    <h3 class="search_phrase">Search for trails based on State or Trail name below:</h3>
 
     <form action="{% url 'trails_search_results' %}" method="get">
-        <input name="q" type="text" placeholder="Search...">
-        <input type="submit" class="btn" value="Search">
+        <input name="q" type="text" placeholder="Enter 2 letter state code or trail name ...."class="search_input">
+        <input type="submit" class="search_button" value="Search">
     </form>
-    
+     </div>
+     </div>
 </div>
 
 {% endblock %}
