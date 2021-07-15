@@ -9,19 +9,20 @@
         <div class="edit-delete"><a href="{% url 'trails_update' trail.id %}"class="edit">Edit</a>
         {% if trail.user == request.user %}
         <a href="{% url 'trails_delete' trail.id %}" class="delete">Delete</a></div>
+        {% endif %}
+    </div>
+    <div>
         <span class="trail_detail" >Trail: {{ trail.name }}<br>
         Address: {{ trail.address }}<br>
         {{ trail.city }},{{ trail.state }}<br>
         Trail Length: {{ trail.trail_length }}<br>
-        Entered By: {{ trail.user }}</span>
-        {% endif %}
+        <p class="added-by">Entered By: {{ trail.user }}</p></span>
     </div>
     <br>
     <div class="amenities_list">Amenities:</div><br>
             {% for amenity in trail.amenities.all %}
             <section>
                 <div>{{amenity.name}}</div>
-                <div><img src='{{amentiy.image}}'>img</div>
             </section>
             {% endfor %}
     <div>
