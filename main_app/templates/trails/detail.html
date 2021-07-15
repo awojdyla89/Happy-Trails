@@ -10,13 +10,13 @@
         {% if trail.user == request.user %}
         <a href="{% url 'trails_delete' trail.id %}" class="delete">Delete</a></div>
         {% endif %}
-        <div>
+    </div>
+    <div>
         <span class="trail_detail" >Trail: {{ trail.name }}<br>
         Address: {{ trail.address }}<br>
         {{ trail.city }},{{ trail.state }}<br>
         Trail Length: {{ trail.trail_length }}<br>
         Entered By: {{ trail.user }}</span>
-        </div>
     </div>
     <br>
     <div class="amenities_list">Amenities:</div><br>
