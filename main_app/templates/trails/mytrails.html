@@ -2,17 +2,23 @@
 {% block content %}
 
 
+
 <h1>My Trails</h1>
-{% for trail in trails %}
- <div class="trail_detail" id="my-trails">
-    <p>Trail: {{ trail.name }}</p>
-    <p>Address: {{ trail.address }}</p>
-    <p>{{ trail.city }}, {{ trail.state }}</p>
-    <p class="card-title">Trail Length: {{ trail.trail_length }}</p>
-    <a href="{% url 'trails_update' trail.id %}" class="edit_link">Edit</a>
-    <a href="{% url 'trails_delete' trail.id %}" class="delete_link">Delete</a>
-</div>
-{% endfor %}
+{% if trails.count %} 
+
+    {% for trail in trails %}
+        <div class="trail_detail" id="my-trails">
+            <p>Trail: {{ trail.name }}</p>
+            <p>Address: {{ trail.address }}</p>
+            <p>{{ trail.city }}, {{ trail.state }}</p>
+            <p class="card-title">Trail Length: {{ trail.trail_length }}</p>
+            <a href="{% url 'trails_update' trail.id %}" class="edit_link">Edit</a>
+            <a href="{% url 'trails_delete' trail.id %}" class="delete_link">Delete</a>
+        </div>
+    {% endfor %}
+{% else %}
+   <h1>No trails added yet. <a href="{% url 'trails_create' %}" class="click_here"> Click here </a>to add a trail.</h1>
+{% endif %}
 
  
 
