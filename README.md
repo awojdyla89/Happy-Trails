@@ -1,4 +1,4 @@
-![home](static/img/homepage.png)
+![home](main_app/static/img/homepage.png)
 
 # Happy Trails
 While many parents would like to share their love of the outdoors with their children, many are hesitant to venture out into parks and natural areas without an understanding of whether there are restrooms, benches, picnic areas, and other amenities that make a place family-friendly. 
@@ -7,11 +7,11 @@ Happy Trails is an app meant to help parents spend less time on research and mor
 
 ## Screenshots
 
-![trail list](static/img/trail_list.png)
+![trail list](main_app/static/img/trail_list.png)
 ---
-![add trail](static/img/add_trail.png)
+![add trail](main_app/static/img/add_trail.png)
 ---
-![trail detail](static/img/trail_detail.png)
+![trail detail](main_app/static/img/trail_detail.png)
 
 ## Technologies Used
 * Python3/HTML/CSS
