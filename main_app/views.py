@@ -108,12 +108,12 @@ def signup(request):
 class SearchResults(ListView):
     model = Trail
     trails = Trail.objects.all()
-    print(trails)
+    #print(trails)
     template_name = 'search_results.html'
     def get_queryset(self):
         query = self.request.GET.get('q')
         amenity = Amenity.objects.filter(Q(name__icontains=query))
-        print(amenity)
+        # print(amenity)
         #object_list = Trail.objects.filter(amenities)
         trail = Trail.objects.filter(amenities=amenity.id)
         return trail
